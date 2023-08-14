@@ -5,6 +5,7 @@
  * @array: array
  * @low: low
  * @high: high
+ * @size: the size
  *
  * Return: index
  */
@@ -16,7 +17,7 @@ int partition(int *array, size_t size, int low, int high)
 	int j = 0;
 	int temp = 0;
 
-	for (j = low; j <= high -1; j++)
+	for (j = low; j <= high - 1; j++)
 	{
 		if (array[j] < pivot)
 		{
@@ -31,7 +32,7 @@ int partition(int *array, size_t size, int low, int high)
 	array[high] = array[i + 1];
 	array[i + 1] = temp;
 
-	return i + 1;
+	return (i + 1);
 }
 
 /**
@@ -39,6 +40,7 @@ int partition(int *array, size_t size, int low, int high)
  * @array: array
  * @low: low
  * @high: high
+ * @size: the size
  *
  */
 
@@ -49,7 +51,7 @@ void quicksort(int *array, size_t size, int low, int high)
 	if (low < high)
 	{
 		p = partition(array, size, low, high);
-		quicksort(array, size, low, p - 1 );
+		quicksort(array, size, low, p - 1);
 		quicksort(array, size, p + 1, high);
 	}
 }
